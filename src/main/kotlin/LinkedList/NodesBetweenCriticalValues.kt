@@ -1,7 +1,6 @@
 package LinkedList
 
 import TwoPointers.ListNode
-import TwoPointers.mergeNodes
 import kotlin.math.abs
 import kotlin.math.min
 
@@ -21,8 +20,6 @@ fun main(){
     println(nodesBetweenCriticalPoints(head)[0])
     return
 }
-
-
 
 fun nodesBetweenCriticalPoints(head: ListNode?): IntArray {
 
@@ -54,7 +51,6 @@ fun nodesBetweenCriticalPoints(head: ListNode?): IntArray {
         for(i in 0 until indexMap.size - 1){
             min = min(min, abs(indexList[i].second - indexList[i+1].second))
         }
-
 
         return intArrayOf(min, abs(indexMap[indexMap.keys.first()]?.minus(indexMap[indexMap.keys.last()]!!) ?: -1))
 }
