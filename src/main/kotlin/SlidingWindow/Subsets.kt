@@ -11,6 +11,7 @@ fun subsets(nums: IntArray): List<List<Int>> {
     fun backtrack(list: List<Int>, start: Int){
         powerset.add(ArrayList(subset))
 
+
         for(i in start until list.size){
             subset.add(list[i])
             backtrack(list, i+1)

@@ -16,16 +16,16 @@ fun main(){
 //    println(sol.bstToGst())
 }
 
-class TreeNode(var `val`: Int) {
-    var left: TreeNode? = null
-    var right: TreeNode? = null
+class TreeNodeGST(var `val`: Int) {
+    var left: TreeNodeGST? = null
+    var right: TreeNodeGST? = null
 }
 
 internal class Solution {
 
         class Solution {
 
-            fun bstToGst(root: TreeNode?): TreeNode? {
+            fun bstToGst(root: TreeNodeGST?): TreeNodeGST? {
                 //the idea here is to do a right to left search of the tree, so that we can get the biggest
                 //value in the tree (the far right val) and then slowly go backwards from there, keeping a
                 //running sum of each value we've visited up to that point
@@ -36,7 +36,7 @@ internal class Solution {
                 //initialize sum to 0 because once we get to the far right value, we won't want to add anything to it;
                 var sum = 0
 
-                fun traverse(node: TreeNode?) {
+                fun traverse(node: TreeNodeGST?) {
                     //return and do nothing for a null node
                     if(node == null) return
 
