@@ -1,8 +1,8 @@
 package array_string
 
 fun main(){
-    var arr = intArrayOf(-2, 3, -5)
-    var sortedArr = sortArray(arr)
+    var arr = intArrayOf(5,2,7,9,4,2,5,6,5,6,7,8,9,3,6,7,3,2,1)
+    var sortedArr = sortArrayB(arr)
     sortedArr.forEach { print(it) }
 }
 
@@ -57,5 +57,49 @@ fun sortArray(nums: IntArray): IntArray {
     }
 
     mergeSort(0, nums.size - 1)
+    return nums
+}
+
+fun sortArrayB(nums: IntArray): IntArray{
+
+    fun merge(l: Int, mid: Int, h: Int){
+        val left = nums.sliceArray(l..mid)
+        val right = nums.sliceArray(mid+1..h)
+        var i = 0
+        var j = 0
+        var k = l
+
+        while (i < left.size && j < right.size){
+            if(left[i] <= right[j]){
+                nums[k] = left[i]
+                i++
+            } else{
+                nums[k] = right[j]
+                j++
+            }
+            k++
+        }
+        while(i<left.size){
+            nums[k] = left[i]
+            i++
+            k++
+        }
+        while(j<right.size){
+            nums[k] = right[j]
+            j++
+            k++
+        }
+    }
+
+    fun mergeSort(l: Int, h: Int){
+        if(l<h){
+            val mid = (l+h)/2
+            mergeSort(l, mid)
+            mergeSort(mid+1, h)
+            merge(l, mid, h)
+        }
+    }
+    mergeSort(0, nums.size - 1)
+
     return nums
 }
