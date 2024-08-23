@@ -43,14 +43,12 @@ fun createBinaryTree(descriptions: Array<IntArray>): TreeNode {
     //[parent, child, isleft]
 
     //initialize mop of val to node for easy reference to already added nodes
-    var nodesAdded = mutableMapOf<Int, TreeNode>()
+    val nodesAdded = mutableMapOf<Int, TreeNode>()
     //since there could be multiple unconnected trees at a time, make a list of roots
-    var curRoots: MutableList<TreeNode> = mutableListOf()
-
+    val curRoots: MutableList<TreeNode> = mutableListOf()
 
     for (node in descriptions.indices) {
         //check if parent node exists
-        var nodeToAdd: TreeNode? = null
         var parentNode: TreeNode? = nodesAdded.getOrDefault(descriptions[node][0], null)
 
         //if it does not, then make a new node, add it to the map and the roots list, and set that as the parent for this particular child
@@ -62,7 +60,7 @@ fun createBinaryTree(descriptions: Array<IntArray>): TreeNode {
         }
 
         //make or get the new child node
-        nodeToAdd = nodesAdded.getOrDefault(descriptions[node][1], null)
+        var nodeToAdd = nodesAdded.getOrDefault(descriptions[node][1], null)
 
         if(nodeToAdd == null){
             nodeToAdd = TreeNode(descriptions[node][1])

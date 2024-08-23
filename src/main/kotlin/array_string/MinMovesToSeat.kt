@@ -10,7 +10,7 @@ fun minMovesToSeat(seats: IntArray, students: IntArray): Int {
     seats.sort()
     students.sort()
     var sum = 0
-    for(i in 0 until seats.size){
+    for(i in seats.indices){
         sum += abs(seats[i] - students[i])
     }
     return sum

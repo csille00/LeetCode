@@ -1,7 +1,7 @@
 package array_string
 
 fun main(){
-    var arr = intArrayOf(5,2,7,9,4,2,5,6,5,6,7,8,9,3,6,7,3,2,1)
+    var arr = intArrayOf(5,2,7,9,4,2,5,6,5,6000,7,8,9,3,6,7,3,2,1)
     var sortedArr = sortArrayB(arr)
     sortedArr.forEach { print(it) }
 }

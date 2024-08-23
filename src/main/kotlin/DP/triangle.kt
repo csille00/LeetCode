@@ -9,7 +9,7 @@ fun main(){
 fun minimumTotal(triangle: List<List<Int>>): Int{
         //This just worked in my brain pretty well when I did it reversed (since I was doing a bottom up approach)
         val triangleCopy = triangle.reversed()
-        var dp = mutableListOf<MutableList<Int>>()
+        val dp = mutableListOf<MutableList<Int>>()
         //Since we are doing a minimum target, initialize everything in dp to Int.MAX_VALUE
         for(layer in triangleCopy) dp.add(MutableList(layer.size) {Int.MAX_VALUE})
         //initialize the bottom row of dp to the same as the bottom row, since that cannot change (you have to take the bottom row to get to the bottom)

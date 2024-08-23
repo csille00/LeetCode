@@ -16,7 +16,7 @@ fun minCostClimbingStairs(cost: IntArray): Int {
         val cost1 = dp[i-1]
         val cost2 = dp[i-2]
         //cost of next taken stair is the cheaper of the two stairs before it, plus the cost of the stair you are on (unless its the top)
-       dp.add(min(cost1, cost2)+ if(i == cost.size) 0 else cost[i])
+       dp.add(min(cost1, cost2) + if(i == cost.size) 0 else cost[i])
     }
     return dp[dp.size - 1]
 }
